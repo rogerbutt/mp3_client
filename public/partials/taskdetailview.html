@@ -1,0 +1,23 @@
+<div class="list" ng-controller='TaskDetailController'>
+  {{errorMes}}
+  <div class="row">
+    <h1>{{task.name}}</h1>
+    <h2>{{task.description}}</h2>
+    <h3>{{task.completed}}</h3>
+    <h3>{{task.deadline}}</h3>
+    <h3>{{task.assignedUserName}}</h3>
+    <h3>{{task.dateCreated}}</h3>
+
+    <br />
+    <a href="#/edittaskview/{{task._id}}" class="button default">Edit Task</a>
+
+    <form>
+      <input ng-model="taskComplete" ng-value="true" type="radio"> Completed
+      <input ng-model="taskComplete" ng-value="false" type="radio"> Pending
+    </form>
+
+    <br />
+    <a href="#/tasksview" class="button default">Back to Task View</a>
+  </div>
+
+</div>

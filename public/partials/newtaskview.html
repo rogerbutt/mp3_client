@@ -1,0 +1,29 @@
+<div class="list" ng-controller='NewTaskController'>
+  Add Task
+  {{errorMes}}
+	<form>
+	  <div class="row">
+        <div class="small-12 columns">
+          <span ng-show="showMissingFields && !newTask.name" style="color: red">*</span>
+          Name: <input type="text" ng-model="newTask.name" />
+          Description: <input type="text" ng-model="newTask.description" />
+          <span ng-show="showMissingFields && !newTask.deadline" style="color: red">*</span>
+          Deadline: <datepicker><input ng-model="newTask.deadline" type="text"></datepicker>
+          User:
+          <select ng-model="selectedUser" />
+            <option ng-repeat="user in users" value="{{$index}}">{{user.name}}</option>
+          </select>
+        </div>
+    </div>
+
+    <div class="text-center">
+      <button ng-click="createTask()" class="button tiny info">Set Data</button>
+    </div>
+
+    {{displayText}}
+
+  </form>
+
+  <br />
+  <a href="#/tasksview" class="button default">Back to Task View</a>
+</div>

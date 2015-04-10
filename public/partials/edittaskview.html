@@ -1,0 +1,29 @@
+<div class="list" ng-controller='EditTaskController'>
+  Edit Task
+  {{errorMes}}
+	<form>
+	  <div class="row">
+        <div class="small-12 columns">
+          <span ng-show="showMissingFields && !task.name" style="color: red">*</span>
+          Name: <input type="text" ng-model="task.name" />
+          Description: <input type="text" ng-model="task.description" />
+          <span ng-show="showMissingFields && !task.deadline" style="color: red">*</span>
+          Deadline: <input type="date" ng-model="task.deadline" />
+          User:
+          <select ng-model="selectedUser" />
+            <option ng-repeat="user in users" value="{{$index}}">{{user.name}}</option>
+          </select>
+        </div>
+    </div>
+
+    <div class="text-center">
+      <button ng-click="editTask()" class="button tiny info">Set Data</button>
+    </div>
+
+    {{displayText}}
+
+  </form>
+
+  <br />
+  <a href="#/tasksview" class="button default">Back to Task View</a>
+</div>

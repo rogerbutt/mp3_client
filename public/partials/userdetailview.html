@@ -1,0 +1,28 @@
+<div class="list" ng-controller='UserDetailController'>
+  {{errorMes}}
+  <div class="row">
+    <h2>Name: {{user.name}}</h2>
+    <h4>Email: {{user.email}}</h4>
+  </div>
+
+  <div class="row">
+    <div class="small-4 columns">Name</div>
+    <div class="small-4 columns">Description</div>
+    <div class="small-4 columns">Complete the Task</div>
+  </div>
+
+  <div class="row" ng-repeat="task in tasks">
+    <div class="small-4 columns"><a href="#/taskdetailview/{{task._id}}">{{task.name}}</a></div>
+    <div class="small-4 columns">{{task.description}}</div>
+    <div class="small-4 columns"><button class="button tiny" ng-click="completeTask($index, task._id)">Complete</button></div>
+  </div>
+
+  <div class="row"><button class="button default" ng-click="loadCompleted()">Load Completed</button></div>
+
+  <div class="row" ng-repeat="task in completedTasks">
+    <div class="small-4 columns"><a href="#/taskdetailview/{{task._id}}">{{task.name}}</a></div>
+    <div class="small-4 columns">{{task.description}}</div>
+    <div class="small-4 columns"><button class="button tiny" ng-click="completeTask(task._id)">Complete</button></div>
+  </div>
+
+</div>

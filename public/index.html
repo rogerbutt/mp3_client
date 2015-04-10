@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>MP2 Starter</title>
   <script src="./lib/angular/angular.min.js"></script>
+  <script src="./lib/angularjs-datepicker/src/js/angular-datepicker.js"></script>
   <script src="./lib/angular-route/angular-route.min.js"></script>
 
   <script src="./js/app.js"></script>
@@ -14,7 +15,8 @@
 
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="./foundation/css/foundation.css">
-  
+  <link rel="stylesheet" href="./lib/angularjs-datepicker/src/css/angular-datepicker.css">
+
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 
@@ -23,9 +25,8 @@
 
 <div class="row">
 	<a class="button" href="#/settings">Settings</a>
-	<a class="button" href="#/llamalist">Llama List</a>
-  <a class="button" href="#/firstview">First View</a>
-  <a class="button" href="#/secondview">Second View</a>
+  <a class="button" href="#/usersview">Users View</a>
+  <a class="button" href="#/tasksview">Tasks View</a>
 </div>
 
 <div ng-view></div>

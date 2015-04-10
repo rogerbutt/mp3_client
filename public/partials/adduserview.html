@@ -1,0 +1,22 @@
+<div class="list" ng-controller='AddUserController'>
+  Add User
+  {{errorMes}}
+	<form>
+	  <div class="row">
+        <div class="small-12 columns">
+          Name: <input type="text" ng-model="newUser.name" />
+          Email: <input type="email" ng-model="newUser.email" />
+        </div>
+    </div>
+
+    <div class="text-center">
+      <button ng-click="setData()" class="button tiny info">Set Data</button>
+    </div>
+
+    {{displayText}}
+
+  </form>
+
+  <br />
+  <a href="#/usersview" class="button default">Back to Users View</a>
+</div>

@@ -1,0 +1,29 @@
+<div class="list" ng-controller='UsersController'>
+  {{errorMes}}
+  <div class="row">
+    Users
+    <br />
+    <a href="#/adduserview" class="button default">Add User</a>
+  </div>
+
+  <div class="row">
+    <div class="small-2 columns">
+      Name
+    </div>
+    <div class="small-10 columns">
+      ID
+    </div>
+  </div>
+  <div class="row user-row" ng-repeat="user in users">
+    <div class="small-2 columns">
+      <a href="#/usersview/{{user._id}}" ng-bind="user.name"></a>
+    </div>
+    <div class="small-5 columns">
+      <a href="#/usersview/{{user._id}}" ng-bind="user._id"></a>
+    </div>
+    <div class="small-5 columns">
+      <button ng-click="deleteUser($index, user._id)" class="button tiny alert">Delete User</button>
+    </div>
+  </div>
+
+</div>

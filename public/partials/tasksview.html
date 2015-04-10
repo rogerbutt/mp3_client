@@ -1,0 +1,61 @@
+<div class="list" ng-controller='TasksController'>
+  {{errorMes}}
+  <div class="row">
+    Tasks
+
+    <a class="button default" href="#/newtaskview">New Task</a>
+
+    <h3>Filter</h3>
+    <form>
+      <input ng-model="taskRadioFilter" name="radioFilter" ng-value="" type="radio"> All
+      <input ng-model="taskRadioFilter" name="radioFilter" ng-value="false" type="radio"> Pending
+      <input ng-model="taskRadioFilter" name="radioFilter" ng-value="true" type="radio"> Completed
+    </form>
+
+    <h3>Sort</h3>
+    <select ng-model="taskSorter">
+      <option value="name">Name</option>
+      <option value="assignedUser">Username</option>
+      <option value="dateCreated">Date Created</option>
+      <option value="dealine">Deadline</option>
+    </select>
+
+    <form>
+      <input ng-model="taskOrder" name="radioFilter" ng-value="1" type="radio"> Ascending
+      <input ng-model="taskOrder" name="radioFilter" ng-value="-1" type="radio"> Descending
+    </form>
+  </div>
+
+  <div class="row">
+    <div class="small-4 columns">
+      <h4>Name</h4>
+    </div>
+    <div class="small-5 columns">
+      <h4>ID</h4>
+    </div>
+    <div class="small-3 columns">
+      <h4>Delete</h4>
+    </div>
+  </div>
+
+  <ul>
+    <li ng-repeat="task in tasks | pagination:curPage*10 | filter: {completed: taskRadioFilter} | limitTo:10">
+      <div class="row">
+        <div class="small-4 columns">
+          <a href="#/taskdetailview/{{task._id}}"<span ng-bind="task.name"></span></a>
+        </div>
+        <div class="small-5 columns">
+          <span ng-bind="task.assignedUser"></span>
+        </div>
+        <div class="small-3 columns">
+          <button ng-click="deleteTask(task._id, $index)" class="button tiny alert">Delete Task</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div class="row">
+    <button class="button default" ng-click="prevPage()">Prev</button>
+    <button class="button default" ng-click="nextPage()">Next</button>
+  </div>
+
+</div>
